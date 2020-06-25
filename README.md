@@ -2,6 +2,13 @@
 
 Optimization Algorithms in Java Programming Language
 
+## Source Code Directory
+
+<pre> Gray Wolf Optimizer:                OptimizationAlgorithms/src/com/thealiyev/GWO.java</pre>
+<pre> Incremental Gray Wolf Optimizer:    OptimizationAlgorithms/src/com/thealiyev/IGWO.java</pre>
+<pre> Expanded Gray Wolf Optimizer:       OptimizationAlgorithms/src/com/thealiyev/ExGWO.java</pre>
+<pre> Whale Optimization Algorithm:       OptimizationAlgorithms/src/com/thealiyev/WOA.java</pre>
+
 ## Authors
 
 - Royal Aliyev
