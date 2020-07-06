@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e505be13-1373-4e0c-a4d0-4d07b789392e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLGWO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/Test.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +32,19 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager" selected="Application.RLGWO">
+    <configuration name="ExGWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thealiyev.ExGWO" />
+      <module name="OptimizationAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thealiyev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thealiyev.GWO" />
       <module name="OptimizationAlgorithms" />
@@ -72,31 +84,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.thealiyev.Test" />
-      <module name="OptimizationAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.thealiyev.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.GWO" />
       <item itemvalue="Application.IGWO" />
       <item itemvalue="Application.RLGWO" />
-      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.ExGWO" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.RLGWO" />
-        <item itemvalue="Application.GWO" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ExGWO" />
         <item itemvalue="Application.IGWO" />
+        <item itemvalue="Application.GWO" />
       </list>
     </recent_temporary>
   </component>
@@ -112,7 +111,8 @@
       <updated>1593102378538</updated>
       <workItem from="1593102380667" duration="115000" />
       <workItem from="1593891564214" duration="1791000" />
-      <workItem from="1593960769585" duration="6733000" />
+      <workItem from="1593960769585" duration="6972000" />
+      <workItem from="1594013629629" duration="65000" />
     </task>
     <servers />
   </component>
@@ -120,22 +120,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="417" key="GridCell.Tab.0.bottom" timestamp="1593976123048">
+    <state width="1398" height="417" key="GridCell.Tab.0.bottom" timestamp="1594013694076">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1593976123048" />
-    <state width="1398" height="417" key="GridCell.Tab.0.center" timestamp="1593976123046">
+    <state width="1398" height="417" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594013694076" />
+    <state width="1398" height="417" key="GridCell.Tab.0.center" timestamp="1594013694075">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1593976123046" />
-    <state width="1398" height="417" key="GridCell.Tab.0.left" timestamp="1593976123045">
+    <state width="1398" height="417" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594013694075" />
+    <state width="1398" height="417" key="GridCell.Tab.0.left" timestamp="1594013694074">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1593976123045" />
-    <state width="1398" height="417" key="GridCell.Tab.0.right" timestamp="1593976123046">
+    <state width="1398" height="417" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594013694074" />
+    <state width="1398" height="417" key="GridCell.Tab.0.right" timestamp="1594013694075">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1593976123046" />
+    <state width="1398" height="417" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594013694075" />
     <state x="413" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1593960775108">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
