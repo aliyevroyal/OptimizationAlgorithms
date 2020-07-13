@@ -40,7 +40,7 @@ public class RLGWO {
         int population = 30, dimension = 100;
         double min = -100.0, max = 100.0;
         int iteration = 500;
-        double sigma1 = 7.0 / 10.0, sigma2 = 2.0 / 10.0, sigma3 = 1.0 / 10.0;
+        double sigma1 = 0.1, sigma2 = 0.5, sigma3 = 0.9;
 
         ArrayList<ArrayList<Double>> optimizationMatrix = createOptimizationMatrix(population, dimension, min, max);
         ArrayList<Double> fitnessValues = findFitnessValues(optimizationMatrix);
