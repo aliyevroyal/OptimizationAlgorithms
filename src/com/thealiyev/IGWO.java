@@ -8,10 +8,10 @@ public class IGWO {
 
     public static void main(String[] args) {
         IGWO igwo = new IGWO();
-        igwo.GWO();
+        igwo.IGWO();
     }
 
-    private void GWO() {
+    private void IGWO() {
         System.out.println("Iterative Gray Wolf Optimization Starts...");
         random = new Random();
 
@@ -61,7 +61,7 @@ public class IGWO {
                     }
                     X.add(optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter) - A.get(0) * D.get(0));
 
-                    if (ndCounter > 1) {
+                    if (ndCounter > 0) {
                         for (int fourthCounter = 0; fourthCounter < ndCounter; fourthCounter = fourthCounter + 1) {
                             r1 = random.nextDouble();
                             r2 = random.nextDouble();

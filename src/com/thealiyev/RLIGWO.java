@@ -3,16 +3,16 @@ package com.thealiyev;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RLGWO {
+public class RLIGWO {
     private static Random random = null;
 
     public static void main(String[] args) {
-        RLGWO rlgwo = new RLGWO();
-        rlgwo.RLGWO();
+        RLIGWO rligwo = new RLIGWO();
+        rligwo.RLIGWO();
     }
 
-    private void RLGWO() {
-        System.out.println("Reinforcement Learning based Gray Wolf Optimization Starts...");
+    private void RLIGWO() {
+        System.out.println("Reinforcement Learning based Iterative Gray Wolf Optimization Starts...");
         random = new Random();
         System.out.println("Reinforcement Learning Initialization Starts...");
         ArrayList<ArrayList<Double>> QTable = new ArrayList<>();
@@ -28,19 +28,20 @@ public class RLGWO {
         QTable.add(vector);
 
         double QValue, MaxQValue, reward;
-        double alpha = 0.7, gamma = 0.8;
-        System.out.println("Gray Wolf Initialization Starts...");
+        double alpha = 0.9, gamma = 0.8;
+        ArrayList<Double> sigmas;
+        double sum, averageA;
+        System.out.println("Iterative Gray Wolf Initialization Starts...");
         double a;
         double r1, r2;
-        double A, A1, A2, A3;
-        double C1, C2, C3;
-        double Dalpha, Dbeta, Ddelta;
-        double Xalpha, Xbeta, Xdelta;
-        double X, X1, X2, X3;
+        ArrayList<Double> A;
+        ArrayList<Double> C;
+        ArrayList<Double> D;
+        ArrayList<Double> X;
+        double x;
         int population = 30, dimension = 100;
         double min = -100.0, max = 100.0;
         int iteration = 500;
-        double sigma1 = 0.1, sigma2 = 0.5, sigma3 = 0.9;
 
         ArrayList<ArrayList<Double>> optimizationMatrix = createOptimizationMatrix(population, dimension, min, max);
         ArrayList<Double> fitnessValues = findFitnessValues(optimizationMatrix);
@@ -49,63 +50,74 @@ public class RLGWO {
         System.out.println("Alpha's Fitness Value at the Initialization: " + sortedFitnessValues.get(0));
         System.out.println("Alpha's Values at the Initialization: " + optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))));
 
-        System.out.println("Gray Wolf Iteration Starts...");
+        System.out.println("Iterative Gray Wolf Iteration Starts...");
         for (int stCounter = 0; stCounter < iteration; stCounter = stCounter + 1) {
             a = 2.0 - 2.0 * stCounter / iteration;
             for (int ndCounter = 0; ndCounter < optimizationMatrix.size(); ndCounter = ndCounter + 1) {
                 for (int rdCounter = 0; rdCounter < optimizationMatrix.get(ndCounter).size(); rdCounter = rdCounter + 1) {
-                    X = optimizationMatrix.get(ndCounter).get(rdCounter);
-                    if (X < min) {
-                        X = min;
-                    } else if (X > max) {
-                        X = max;
+                    A = new ArrayList<>();
+                    C = new ArrayList<>();
+                    D = new ArrayList<>();
+                    X = new ArrayList<>();
+                    sigmas = new ArrayList<>();
+
+                    x = optimizationMatrix.get(ndCounter).get(rdCounter);
+                    if (x < min) {
+                        x = min;
+                    } else if (x > max) {
+                        x = max;
                     }
 
                     r1 = random.nextDouble();
                     r2 = random.nextDouble();
-                    A1 = 2 * a * r1 - a;
-                    C1 = 2 * r2;
-                    Xalpha = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter);
-                    Dalpha = C1 * Xalpha - X;
-                    if (Dalpha < 0) {
-                        Dalpha = Dalpha * -1;
+                    A.add(2 * a * r1 - a);
+                    C.add(2 * r2);
+                    D.add(C.get(0) * optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter) - x);
+                    if (D.get(0) < 0) {
+                        D.set(0, -1 * D.get(0));
                     }
-                    X1 = Xalpha - A1 * Dalpha;
+                    X.add(optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter) - A.get(0) * D.get(0));
 
-                    r1 = random.nextDouble();
-                    r2 = random.nextDouble();
-                    A2 = 2 * a * r1 - a;
-                    C2 = 2 * r2;
-                    Xbeta = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(1))).get(rdCounter);
-                    Dbeta = C2 * Xbeta - X;
-                    if (Dbeta < 0) {
-                        Dbeta = Dbeta * -1;
-                    }
-                    X2 = Xbeta - A2 * Dbeta;
-
-                    r1 = random.nextDouble();
-                    r2 = random.nextDouble();
-                    A3 = 2 * a * r1 - a;
-                    C3 = 2 * r2;
-                    Xdelta = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(2))).get(rdCounter);
-                    Ddelta = C3 * Xdelta - X;
-                    if (Ddelta < 0) {
-                        Ddelta = Ddelta * -1;
-                    }
-                    X3 = Xdelta - A3 * Ddelta;
-
-                    A = (A1 + A2 + A3) / 3;
-                    if (A < 0) {
-                        A = -1.0 * A;
+                    if (ndCounter > 0) {
+                        for (int fourthCounter = 0; fourthCounter < ndCounter; fourthCounter = fourthCounter + 1) {
+                            r1 = random.nextDouble();
+                            r2 = random.nextDouble();
+                            A.add(2 * a * r1 - a);
+                            C.add(2 * r2);
+                            D.add(C.get(fourthCounter) * optimizationMatrix.get(ndCounter - 1).get(rdCounter) - x);
+                            if (D.get(fourthCounter) < 0) {
+                                D.set(fourthCounter, -1 * D.get(fourthCounter));
+                            }
+                            X.add(optimizationMatrix.get(ndCounter - 1).get(rdCounter) - A.get(fourthCounter) * D.get(fourthCounter));
+                        }
                     }
 
-                    if (A > 1) {
+                    sum = 0;
+                    for (double counter = 0; counter < ndCounter + 1; counter = counter + 1) {
+                        sigmas.add(counter + 1);
+                        sum = sum + (counter + 1);
+                    }
+                    for (int counter = 0; counter < sigmas.size(); counter = counter + 1) {
+                        sigmas.set(counter, sigmas.get(counter) / sum);
+                    }
+
+                    averageA = 0;
+                    for (int counter = 0; counter < A.size(); counter = counter + 1) {
+                        averageA = averageA + A.get(counter);
+                    }
+                    averageA = averageA / A.size();
+
+                    if (averageA > 1) {
                         //State = exploration, work on 1st row of Q Table
                         if (QTable.get(0).get(0) > QTable.get(0).get(1)) {
                             //Action = exploration
                             QValue = QTable.get(0).get(0);
-                            X = (X1 + X2 + X3) / 3;
-                            if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                 reward = 1.0;
                             } else {
                                 reward = -1.0;
@@ -121,8 +133,12 @@ public class RLGWO {
                         } else {
                             //Action = exploitation
                             QValue = QTable.get(0).get(1);
-                            X = X1 * sigma1 + X2 * sigma2 + X3 * sigma3;
-                            if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter) * A.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                 reward = 1.0;
                             } else {
                                 reward = -1.0;
@@ -141,8 +157,12 @@ public class RLGWO {
                         if (QTable.get(1).get(0) > QTable.get(1).get(1)) {
                             //Action = exploration
                             QValue = QTable.get(1).get(0);
-                            X = (X1 + X2 + X3) / 3;
-                            if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                 reward = 1.0;
                             } else {
                                 reward = -1.0;
@@ -158,8 +178,12 @@ public class RLGWO {
                         } else {
                             //Action = exploitation
                             QValue = QTable.get(1).get(1);
-                            X = X1 * sigma1 + X2 * sigma2 + X3 * sigma3;
-                            if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter) * A.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                 reward = 1.0;
                             } else {
                                 reward = -1.0;
@@ -175,14 +199,16 @@ public class RLGWO {
                         }
                     }
 
-                    optimizationMatrix.get(ndCounter).set(rdCounter, X);
+                    optimizationMatrix.get(ndCounter).set(rdCounter, x);
                 }
             }
             fitnessValues = findFitnessValues(optimizationMatrix);
             sortedFitnessValues = sortFitnessValue(fitnessValues);
             System.out.println(sortedFitnessValues.get(0));
         }
-        System.out.println("Gray Wolf Iteration Ends...");
+
+        System.out.println("Iterative Gray Wolf Iteration Ends...");
+        System.out.println("Alpha's Values at the End: " + optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))));
     }
 
     private ArrayList<ArrayList<Double>> createOptimizationMatrix(int population, int dimension, double min,

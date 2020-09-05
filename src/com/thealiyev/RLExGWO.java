@@ -3,18 +3,34 @@ package com.thealiyev;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ExGWO {
+public class RLExGWO {
     private static Random random = null;
 
     public static void main(String[] args) {
-        ExGWO exgwo = new ExGWO();
-        exgwo.ExGWO();
+        RLExGWO rlExGWO = new RLExGWO();
+        rlExGWO.RLExGWO();
     }
 
-    private void ExGWO() {
-        System.out.println("Expanded Gray Wolf Optimization Starts...");
+    private void RLExGWO() {
+        System.out.println("Reinforcement Learning based Expanded Gray Wolf Optimization Starts...");
         random = new Random();
+        System.out.println("Reinforcement Learning Initialization Starts...");
+        ArrayList<ArrayList<Double>> QTable = new ArrayList<>();
+        ArrayList<Double> vector = new ArrayList<>();
 
+        vector.add(0.0);
+        vector.add(0.0);
+        QTable.add(vector);
+        vector = new ArrayList<>();
+
+        vector.add(0.0);
+        vector.add(0.0);
+        QTable.add(vector);
+
+        double QValue, MaxQValue, reward;
+        double alpha = 0.9, gamma = 0.8;
+        ArrayList<Double> sigmas;
+        double sum, averageA;
         System.out.println("Expanded Gray Wolf Initialization Starts...");
         double a;
         double r1, r2;
@@ -43,6 +59,7 @@ public class ExGWO {
                     C = new ArrayList<>();
                     D = new ArrayList<>();
                     X = new ArrayList<>();
+                    sigmas = new ArrayList<>();
 
                     x = optimizationMatrix.get(ndCounter).get(rdCounter);
                     if (x < min) {
@@ -95,11 +112,113 @@ public class ExGWO {
                         }
                     }
 
-                    x = 0;
-                    for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
-                        x = x + X.get(fifthCounter);
+                    sum = 0;
+                    for (double counter = 0; counter < ndCounter + 1; counter = counter + 1) {
+                        sigmas.add(counter + 1);
+                        sum = sum + (counter + 1);
                     }
-                    x = x / X.size();
+                    for (int counter = 0; counter < sigmas.size(); counter = counter + 1) {
+                        sigmas.set(counter, sigmas.get(counter) / sum);
+                    }
+
+                    averageA = 0;
+                    for (int counter = 0; counter < A.size(); counter = counter + 1) {
+                        averageA = averageA + A.get(counter);
+                    }
+                    averageA = averageA / A.size();
+
+                    if (averageA > 1) {
+                        //State = exploration, work on 1st row of Q Table
+                        if (QTable.get(0).get(0) > QTable.get(0).get(1)) {
+                            //Action = exploration
+                            QValue = QTable.get(0).get(0);
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                reward = 1.0;
+                            } else {
+                                reward = -1.0;
+                            }
+                            //Finds Q max
+                            MaxQValue = QTable.get(0).get(0);
+                            if (QTable.get(0).get(1) > MaxQValue) {
+                                MaxQValue = QTable.get(0).get(1);
+                            }
+                            //Calculate Q and update Q Table
+                            QValue = QValue + alpha * (reward + gamma * MaxQValue - QValue);
+                            QTable.get(0).set(0, QValue);
+                        } else {
+                            //Action = exploitation
+                            QValue = QTable.get(0).get(1);
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter) * A.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                reward = 1.0;
+                            } else {
+                                reward = -1.0;
+                            }
+                            //Finds Q max
+                            MaxQValue = QTable.get(1).get(0);
+                            if (QTable.get(1).get(1) > MaxQValue) {
+                                MaxQValue = QTable.get(1).get(1);
+                            }
+                            //Calculate Q and update Q Table
+                            QValue = QValue + alpha * (reward + gamma * MaxQValue - QValue);
+                            QTable.get(0).set(1, QValue);
+                        }
+                    } else {
+                        //State = exploitation, work on 2nd row of Q Table
+                        if (QTable.get(1).get(0) > QTable.get(1).get(1)) {
+                            //Action = exploration
+                            QValue = QTable.get(1).get(0);
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                reward = 1.0;
+                            } else {
+                                reward = -1.0;
+                            }
+                            //Finds Q max
+                            MaxQValue = QTable.get(0).get(0);
+                            if (QTable.get(0).get(1) > MaxQValue) {
+                                MaxQValue = QTable.get(0).get(1);
+                            }
+                            //Calculate Q and update Q Table
+                            QValue = QValue + alpha * (reward + gamma * MaxQValue - QValue);
+                            QTable.get(1).set(0, QValue);
+                        } else {
+                            //Action = exploitation
+                            QValue = QTable.get(1).get(1);
+                            x = 0;
+                            for (int fifthCounter = 0; fifthCounter < X.size(); fifthCounter = fifthCounter + 1) {
+                                x = x + X.get(fifthCounter) * A.get(fifthCounter);
+                            }
+                            x = x / X.size();
+                            if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                reward = 1.0;
+                            } else {
+                                reward = -1.0;
+                            }
+                            //Finds Q max
+                            MaxQValue = QTable.get(1).get(0);
+                            if (QTable.get(1).get(1) > MaxQValue) {
+                                MaxQValue = QTable.get(1).get(1);
+                            }
+                            //Calculate Q and update Q Table
+                            QValue = QValue + alpha * (reward + gamma * MaxQValue - QValue);
+                            QTable.get(1).set(1, QValue);
+                        }
+                    }
+
                     optimizationMatrix.get(ndCounter).set(rdCounter, x);
                 }
             }

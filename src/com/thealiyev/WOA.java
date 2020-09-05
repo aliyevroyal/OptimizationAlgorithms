@@ -16,9 +16,8 @@ public class WOA {
         random = new Random();
 
         System.out.println("Whale Optimization Initialization Starts...");
-        double a;
+        double a1, a2, r1, r2, A, C;
         boolean p;
-        double r, A, C;
         int randIndividual;
         double Xalpha, Dalpha, Xrand, Drand;
         double D;
@@ -37,7 +36,7 @@ public class WOA {
 
         System.out.println("Whale Optimization Iteration Starts...");
         for (int stCounter = 0; stCounter < iteration; stCounter = stCounter + 1) {
-            a = 2.0 - 2.0 * stCounter / iteration;
+            a1 = 2.0 - 2.0 * stCounter / iteration;
             for (int ndCounter = 0; ndCounter < optimizationMatrix.size(); ndCounter = ndCounter + 1) {
                 for (int rdCounter = 0; rdCounter < optimizationMatrix.get(ndCounter).size(); rdCounter = rdCounter + 1) {
                     X = optimizationMatrix.get(ndCounter).get(rdCounter);
@@ -49,9 +48,10 @@ public class WOA {
 
                     p = random.nextBoolean();
                     if (p) {
-                        r = random.nextDouble();
-                        A = 2 * a * r - a;
-                        C = 2 * r;
+                        r1 = random.nextDouble();
+                        A = 2 * a1 * r1 - a1;
+                        r2 = random.nextDouble();
+                        C = 2 * r2;
                         if (Math.abs(A) < 1) {
                             Xalpha = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter);
                             Dalpha = C * Xalpha - X;
@@ -74,8 +74,9 @@ public class WOA {
                         if (D < 0) {
                             D = D * -1;
                         }
-                        l = -1.0 + (1.0 - (-1.0)) * random.nextDouble();
-                        X = D * Math.pow(Math.E, (b * l)) * Math.cos(Math.toRadians(2 * Math.PI * l)) + Xalpha;
+                        a2 = -1.0 + stCounter * ((-1.0) / iteration);
+                        l = (a2 - 1.0) * random.nextDouble() + 1.0;
+                        X = D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
                     }
 
                     optimizationMatrix.get(ndCounter).set(rdCounter, X);

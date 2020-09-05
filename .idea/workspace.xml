@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e505be13-1373-4e0c-a4d0-4d07b789392e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLExGWO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLIGWO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLWOA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/RLGWO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/RLGWO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/WOA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/WOA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/ExGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/ExGWO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/IGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/IGWO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/thealiyev/RLGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/RLGWO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/WOA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/WOA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +40,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.RLGWO">
+  <component name="RunManager" selected="Application.RLExGWO">
     <configuration name="ExGWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thealiyev.ExGWO" />
-      <module name="OptimizationAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.thealiyev.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.thealiyev.GWO" />
       <module name="OptimizationAlgorithms" />
       <extension name="coverage">
         <pattern>
@@ -74,8 +67,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RLGWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.thealiyev.RLGWO" />
+    <configuration name="RLExGWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thealiyev.RLExGWO" />
+      <module name="OptimizationAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thealiyev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RLIGWO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thealiyev.RLIGWO" />
+      <module name="OptimizationAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thealiyev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RLWOA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thealiyev.RLWOA" />
       <module name="OptimizationAlgorithms" />
       <extension name="coverage">
         <pattern>
@@ -88,17 +107,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.GWO" />
+      <item itemvalue="Application.RLWOA" />
+      <item itemvalue="Application.RLIGWO" />
       <item itemvalue="Application.IGWO" />
-      <item itemvalue="Application.RLGWO" />
       <item itemvalue="Application.ExGWO" />
+      <item itemvalue="Application.RLExGWO" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RLGWO" />
-        <item itemvalue="Application.GWO" />
+        <item itemvalue="Application.RLExGWO" />
         <item itemvalue="Application.ExGWO" />
+        <item itemvalue="Application.RLIGWO" />
         <item itemvalue="Application.IGWO" />
+        <item itemvalue="Application.RLWOA" />
       </list>
     </recent_temporary>
   </component>
@@ -118,6 +139,14 @@
       <workItem from="1594013629629" duration="65000" />
       <workItem from="1594153023321" duration="2240000" />
       <workItem from="1594639158538" duration="18000" />
+      <workItem from="1595776956596" duration="1172000" />
+      <workItem from="1596299600057" duration="116000" />
+      <workItem from="1596299954151" duration="169000" />
+      <workItem from="1597436664077" duration="110000" />
+      <workItem from="1598974719931" duration="2320000" />
+      <workItem from="1598977833637" duration="1140000" />
+      <workItem from="1598991976140" duration="10348000" />
+      <workItem from="1599329458805" duration="854000" />
     </task>
     <servers />
   </component>
@@ -125,25 +154,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="417" key="GridCell.Tab.0.bottom" timestamp="1594639176128">
+    <state width="1398" height="347" key="GridCell.Tab.0.bottom" timestamp="1599330315268">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594639176128" />
-    <state width="1398" height="417" key="GridCell.Tab.0.center" timestamp="1594639176127">
+    <state width="1398" height="347" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599330315268" />
+    <state width="1398" height="347" key="GridCell.Tab.0.center" timestamp="1599330315267">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594639176127" />
-    <state width="1398" height="417" key="GridCell.Tab.0.left" timestamp="1594639176126">
+    <state width="1398" height="347" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1599330315267" />
+    <state width="1398" height="347" key="GridCell.Tab.0.left" timestamp="1599330315266">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594639176126" />
-    <state width="1398" height="417" key="GridCell.Tab.0.right" timestamp="1594639176127">
+    <state width="1398" height="347" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1599330315266" />
+    <state width="1398" height="347" key="GridCell.Tab.0.right" timestamp="1599330315267">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="417" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594639176127" />
-    <state x="413" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1593960775108">
+    <state width="1398" height="347" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599330315267" />
+    <state x="413" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1599329457399">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="413" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1593960775108" />
+    <state x="413" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1599329457399" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599007385897">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599007385897" />
   </component>
 </project>
