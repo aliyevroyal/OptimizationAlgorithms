@@ -36,7 +36,7 @@ public class RLWOA {
         double Xalpha, Dalpha, Xrand, Drand;
         double D;
         double b = 1, l;
-        double X;
+        double x;
         int population = 30, dimension = 100;
         double min = -100.0, max = 100.0;
         int iteration = 500;
@@ -54,11 +54,11 @@ public class RLWOA {
             a1 = 2.0 - 2.0 * stCounter / iteration;
             for (int ndCounter = 0; ndCounter < optimizationMatrix.size(); ndCounter = ndCounter + 1) {
                 for (int rdCounter = 0; rdCounter < optimizationMatrix.get(ndCounter).size(); rdCounter = rdCounter + 1) {
-                    X = optimizationMatrix.get(ndCounter).get(rdCounter);
-                    if (X < min) {
-                        X = min;
-                    } else if (X > max) {
-                        X = max;
+                    x = optimizationMatrix.get(ndCounter).get(rdCounter);
+                    if (x < min) {
+                        x = min;
+                    } else if (x > max) {
+                        x = max;
                     }
 
                     r1 = random.nextDouble();
@@ -70,7 +70,7 @@ public class RLWOA {
                     if (p) {
                         if (Math.abs(A) < 1) {
                             Xalpha = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter);
-                            Dalpha = C * Xalpha - X;
+                            Dalpha = C * Xalpha - x;
                             if (Dalpha < 0) {
                                 Dalpha = Dalpha * -1;
                             }
@@ -79,8 +79,8 @@ public class RLWOA {
                             if (QTable.get(1).get(0) > QTable.get(1).get(1)) {
                                 //Action = exploration
                                 QValue = QTable.get(1).get(0);
-                                X = Xalpha - A * Dalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = Xalpha - A * Dalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -96,8 +96,8 @@ public class RLWOA {
                             } else {
                                 //Action = exploitation
                                 QValue = QTable.get(1).get(1);
-                                X = sigma1 * Xalpha - A * Dalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = sigma1 * Xalpha - A * Dalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -114,7 +114,7 @@ public class RLWOA {
                         } else if (Math.abs(A) >= 1) {
                             randIndividual = random.nextInt(sortedFitnessValues.size());
                             Xrand = optimizationMatrix.get(randIndividual).get(rdCounter);
-                            Drand = C * Xrand - X;
+                            Drand = C * Xrand - x;
                             if (Drand < 0) {
                                 Drand = Drand * -1;
                             }
@@ -123,9 +123,9 @@ public class RLWOA {
                             if (QTable.get(0).get(0) > QTable.get(0).get(1)) {
                                 //Action = exploration
                                 QValue = QTable.get(0).get(0);
-                                X = Xrand - A * Drand;
+                                x = Xrand - A * Drand;
 
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -141,9 +141,9 @@ public class RLWOA {
                             } else {
                                 //Action = exploitation
                                 QValue = QTable.get(0).get(0);
-                                X = sigma1 * Xrand - A * Drand;
+                                x = sigma1 * Xrand - A * Drand;
 
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -160,7 +160,7 @@ public class RLWOA {
                         }
                     } else {
                         Xalpha = optimizationMatrix.get(fitnessValues.indexOf(sortedFitnessValues.get(0))).get(rdCounter);
-                        D = Xalpha - X;
+                        D = Xalpha - x;
                         if (D < 0) {
                             D = D * -1;
                         }
@@ -172,8 +172,8 @@ public class RLWOA {
                             if (QTable.get(0).get(0) > QTable.get(0).get(1)) {
                                 //Action = exploration
                                 QValue = QTable.get(0).get(0);
-                                X = D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -189,8 +189,8 @@ public class RLWOA {
                             } else {
                                 //Action = exploitation
                                 QValue = QTable.get(0).get(1);
-                                X = sigma1 * D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = sigma1 * D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -209,8 +209,8 @@ public class RLWOA {
                             if (QTable.get(1).get(0) > QTable.get(1).get(1)) {
                                 //Action = exploration
                                 QValue = QTable.get(1).get(0);
-                                X = D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -226,8 +226,8 @@ public class RLWOA {
                             } else {
                                 //Action = exploitation
                                 QValue = QTable.get(1).get(1);
-                                X = sigma1 * D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
-                                if (X < optimizationMatrix.get(ndCounter).get(rdCounter)) {
+                                x = sigma1 * D * Math.pow(Math.E, (b * l)) * Math.cos(2 * Math.PI * l) + Xalpha;
+                                if (x < optimizationMatrix.get(ndCounter).get(rdCounter)) {
                                     reward = 1.0;
                                 } else {
                                     reward = -1.0;
@@ -244,7 +244,7 @@ public class RLWOA {
                         }
                     }
 
-                    optimizationMatrix.get(ndCounter).set(rdCounter, X);
+                    optimizationMatrix.get(ndCounter).set(rdCounter, x);
                 }
             }
             fitnessValues = findFitnessValues(optimizationMatrix);

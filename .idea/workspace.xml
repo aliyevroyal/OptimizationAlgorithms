@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e505be13-1373-4e0c-a4d0-4d07b789392e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLExGWO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLIGWO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/thealiyev/RLWOA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/WOA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OptimizationAlgorithms/com/thealiyev/WOA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/ExGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/ExGWO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/IGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/IGWO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/RLGWO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/RLGWO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/WOA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/WOA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/thealiyev/RLWOA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/thealiyev/RLWOA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +23,10 @@
   <component name="ProjectId" id="1dore3jA7Yz49vvbDPNTBMiBuCA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -123,6 +116,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -147,11 +141,14 @@
       <workItem from="1598977833637" duration="1140000" />
       <workItem from="1598991976140" duration="10348000" />
       <workItem from="1599329458805" duration="854000" />
+      <workItem from="1599606084527" duration="1489000" />
+      <workItem from="1599608171869" duration="2265000" />
+      <workItem from="1599612503825" duration="4324000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1398" height="347" key="GridCell.Tab.0.bottom" timestamp="1599330315268">
